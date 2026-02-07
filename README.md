@@ -1,6 +1,6 @@
 # Naksh Jewels – Mini E-commerce Module
 
-This project is a mini e-commerce application built as part of the **Naksh Jewels ReactJS & Node.js Internship Assessment**.  
+This project is a mini e-commerce application.  
 It demonstrates frontend development with React, backend APIs with Node.js & Express, state management, and basic Docker usage.
 
 ---
