@@ -4,13 +4,8 @@ const Landing = () => {
   return (
     <div className="landing">
       <div className="landing-content">
-        <h1 className="heading-main">Trendy Jewellery - </h1>
-        <h2 className="heading-sub">your personal designing</h2>
-
-        <p>
-          Each piece is a unique expression of understated luxury,
-          crafted with precision and elegance.
-        </p>
+        <h1 className="heading-main">Jewellery Designed to Be Remembered</h1>
+        <h2 className="heading-sub">A curated collection where form, detail, and craftsmanship come together.</h2>
 
         <Link to="/products">
           <button className="primary-btn">Explore Collection</button>
