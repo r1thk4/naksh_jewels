@@ -8,36 +8,74 @@ const Cart = () => {
     0
   );
 
+  if (cartItems.length === 0) {
+    return (
+      <div className="cart-page">
+        <h2>Your Cart</h2>
+        <p>Your cart is empty.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="products-page">
-      <h2>Cart</h2>
+    <div className="cart-page">
+      <h2>Your Cart</h2>
 
-      {cartItems.length === 0 && <p>Cart is empty</p>}
+      <div className="cart-list">
+        {cartItems.map((item) => (
+        <div key={item.id} className="cart-row">
+        <img
+          src={item.image}
+          alt={item.name}
+          className="cart-image"
+        />
 
-      {cartItems.map((item) => (
-        <div key={item.id} className="cart-item">
+        <div className="cart-info">
           <h4>{item.name}</h4>
           <p>₹{item.price}</p>
+        </div>
 
-          <input
-            type="number"
-            min="1"
-            value={item.quantity}
-            onChange={(e) =>
-              updateQuantity(item.id, Number(e.target.value))
+        <div className="cart-qty">
+          <button
+            onClick={() =>
+              updateQuantity(item.id, item.quantity - 1)
             }
-          />
+            disabled={item.quantity === 1}
+          >
+            -
+          </button>
+
+          <span>{item.quantity}</span>
 
           <button
-            className="primary-btn"
-            onClick={() => removeFromCart(item.id)}
+            onClick={() =>
+              updateQuantity(item.id, item.quantity + 1)
+            }
           >
-            Remove
+            +
           </button>
         </div>
-      ))}
 
-      <h3>Total: ₹{total}</h3>
+        <div className="cart-subtotal">
+          ₹{item.price * item.quantity}
+        </div>
+
+        <button
+          className="cart-remove"
+          onClick={() => removeFromCart(item.id)}
+        >
+          Remove
+        </button>
+      </div>
+
+        ))}
+      </div>
+
+      <div className="cart-checkout">
+        <button className="checkout-btn">
+          Checkout · ₹{total}
+        </button>
+      </div>
     </div>
   );
 };
