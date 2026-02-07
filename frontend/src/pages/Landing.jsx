@@ -4,10 +4,8 @@ const Landing = () => {
   return (
     <div className="landing">
       <div className="landing-content">
-        <h1>
-          Trendy Jewellery<br />
-          Your Personal Designing
-        </h1>
+        <h1 className="heading-main">Trendy Jewellery - </h1>
+        <h2 className="heading-sub">your personal designing</h2>
 
         <p>
           Each piece is a unique expression of understated luxury,
@@ -18,6 +16,8 @@ const Landing = () => {
           <button className="primary-btn">Explore Collection</button>
         </Link>
       </div>
+
+      <div className="landing-image"></div>
     </div>
   );
 };

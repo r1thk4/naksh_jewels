@@ -6,13 +6,15 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
   return (
-    <div className="product-card">
-      <img src={product.image} alt={product.name} />
-      <h3>{product.name}</h3>
-      <p>₹{product.price}</p>
-      <button className="primary-btn" onClick={() => addToCart(product)}>
-        Add to Cart
-      </button>
+    <div className="editorial-card">
+      <img src={product.image} alt={product.name} className="product-image" />
+      <div className="editorial-info">
+        <h4>{product.name}</h4>
+        <p>₹{product.price}</p>
+        <button onClick={() => addToCart(product)}>
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
 };
