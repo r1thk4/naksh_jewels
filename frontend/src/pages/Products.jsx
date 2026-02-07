@@ -11,7 +11,6 @@ const Products = () => {
       .catch(console.error);
   }, []);
 
-  // Group products by category
   const groupedProducts = products.reduce((acc, product) => {
     if (!acc[product.category]) {
       acc[product.category] = [];
@@ -21,20 +20,14 @@ const Products = () => {
   }, {});
 
   return (
-    <div style={{ padding: "1rem" }}>
+    <div className="products-page">
       <h2>Our Collection</h2>
 
       {Object.keys(groupedProducts).map((category) => (
-        <div key={category} style={{ marginBottom: "2rem" }}>
+        <div key={category} className="category-section">
           <h3>{category}</h3>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "1rem"
-            }}
-          >
+          <div className="product-grid">
             {groupedProducts[category].map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

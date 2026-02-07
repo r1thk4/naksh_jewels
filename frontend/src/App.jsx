@@ -1,18 +1,19 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
+import NavBar from "./components/NavBar";
 import { CartProvider } from "./context/CartContext";
 
 const App = () => {
   return (
     <CartProvider>
       <BrowserRouter>
-        <nav>
-          <Link to="/">Products</Link> | <Link to="/cart">Cart</Link>
-        </nav>
+        <NavBar />
 
         <Routes>
-          <Route path="/" element={<Products />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
