@@ -1,7 +1,9 @@
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cartItems, updateQuantity, removeFromCart } = useCart();
+  const navigate = useNavigate();
+  const { cartItems, updateQuantity, removeFromCart, clearCart } = useCart();
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -72,7 +74,10 @@ const Cart = () => {
       </div>
 
       <div className="cart-checkout">
-        <button className="checkout-btn">
+        <button className="checkout-btn" onClick={() => {
+          clearCart();
+          navigate("/checkout-success");
+        }}>
           Checkout · ₹{total}
         </button>
       </div>

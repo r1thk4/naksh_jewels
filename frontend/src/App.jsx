@@ -4,6 +4,7 @@ import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import NavBar from "./components/NavBar";
 import { CartProvider } from "./context/CartContext";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Landing />} />
           <Route path="/products" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout-success" element={<CheckoutSuccess />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>
