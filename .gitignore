@@ -1,0 +1,11 @@
+# node
+node_modules/
+
+# env files
+.env
+
+# vite
+dist/
+
+# logs
+npm-debug.log*
